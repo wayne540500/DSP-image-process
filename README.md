@@ -26,24 +26,7 @@ And this is the pole zero plot, we can see that there are 13 poles&zeros:
 ![image](https://github.com/wayne540500/DSP-image-process/assets/69573286/aee04d65-0ab5-40f9-b614-c31346303d4c)
 
 I design my code to match the criteria of the hint.
-% Step 3: Design FIR Minimum Phase Filter
-[b, a] = eqtflength(b_fir, 1);
-[z, p, k] = tf2zp(b, a);
-len = length(z);
-km = k;
-z_minP = zeros(len, 1);
-zMag = abs(z);
 
-for i = 1:len
-    if(zMag(i) > 1)
-        z_minP(i) = 1 / conj(z(i));
-        km = km * zMag(i);
-    else
-        z_minP(i) = z(i);
-    end
-end
-
-[b_min, a_min] = zp2tf(z_minP, p, km);
 
 And the following are the plot of magnitude response and phase response:
 
